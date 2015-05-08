@@ -102,9 +102,6 @@ dojo.addOnLoad(function() {
 				map : map
 			}, dojo.byId("measurementDiv"));
 			measurement.startup();
-			
-	
-		         
-		         
+					         
 
 		});
