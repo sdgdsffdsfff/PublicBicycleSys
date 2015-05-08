@@ -1,0 +1,206 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html, body {
+	background: #FFFFFF;
+	font: normal 15px "Microsoft YaHei";
+}
+
+#top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 70px;
+	background-color: #303030;
+}
+
+#top_logo {
+	width: 600px;
+	float: left;
+	vertical-align: middle;
+	height: 65px;
+	line-height: 65px;
+	padding: 8px 8px 8px 40px;
+}
+
+#top_links {
+	width: 550px;
+	height: 65px;
+	float: right;
+	line-height: 65px;
+	color: #ADADAD;
+	line-height: 65px;
+	position: relative;
+}
+
+#top_op {
+	width: 450px;
+}
+
+#top_op ul {
+	list-style-type: none;
+}
+
+#top_op ul li {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#top_op ul li img {
+	vertical-align: text-top;
+}
+
+#top_links a:link, #nav_links a:visited, #nav_links a:hover, #nav_links a:active {
+	list-style: none;
+	text-decoration: none;
+	color: #fff;
+}
+
+#top_links a:hover {
+	list-style: none;
+	text-decoration: underline;
+	color: #fff;
+}
+
+#top_close {
+	width: 80px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	border-left: 1px solid #171717;
+	vertical-align: text-top;
+}
+
+#side {
+	position: absolute;
+	left: 0;
+	top: 70px;
+	bottom: 0px;
+	width: 350px;
+	overflow: hidden;
+}
+
+#main {
+	position: absolute;
+	left: 350px;
+	top: 70px;
+	bottom: 0px;
+	right: 0px;
+	width: auto;
+	z-index: 2;
+	overflow: hidden;
+}
+
+
+
+#left_menu {
+	width: 60px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	background: #044599;
+	overflow: hidden;
+}
+
+#left_menu_cnt {
+	width: 290px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 60px;
+	overflow: auto;
+	background: #F1F1F1;
+}
+
+#left_menu_cnt #nav_module {
+	position: fixed;
+	padding-left: 10px;
+	background: #F1F1F1;
+}
+
+#left_menu_cnt {
+	margin-top: 0px;
+	overflow: auto;
+}
+
+#nav_resource1 {
+	margin-top: 60px;
+	overflow: auto;
+	display: block;
+}
+#nav_resource2 {
+	margin-top: 60px;
+	overflow: auto;
+	display: none;
+}
+
+#nav_resource3 {
+	margin-top: 60px;
+	overflow: auto;
+	display: none;
+}
+
+#TabPage2 li {
+	padding: 19px 9px 19px 15px;
+	cursor: pointer;
+}
+/*比例尺*/
+.selected {
+	background: #FFF;
+	cursor: pointer;
+}
+/*返回中心点*/
+#HomeButton {
+	position: absolute;
+	top: 95px;
+	left: 19px;
+	z-index: 30;
+}
+
+/*量算工具*/
+
+.claro .dijitTitlePaneTitle {
+        background: #fff;
+        font-weight:600;
+        border: none;
+        border-bottom:solid 1px #29201A;
+        border-top:solid 1px #29201A;
+      }
+      .claro .dijitTitlePaneTitleHover {
+        background:#eee;
+      }
+      .claro .dijitTitlePaneTitleActive {
+        background:#808775;
+      }
+      .claro .dijitTitlePaneContentOuter {
+        border-right: none;
+        border-bottom: none;
+        border-left: none;
+      }
+
+#titlePane {
+
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 50;
+	width: 200px;
+	background-color: #EEEEEE;
+
+}
+
+ #search {
+         display: block;
+         position: absolute;
+         z-index: 100;
+         top: 18px;
+
+      }
+      
+
