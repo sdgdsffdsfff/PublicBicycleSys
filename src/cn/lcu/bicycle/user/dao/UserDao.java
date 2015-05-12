@@ -5,9 +5,6 @@ import java.sql.SQLException;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import org.eclipse.jdt.internal.compiler.parser.Scanner;
-
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import cn.itcast.jdbc.TxQueryRunner;
 import cn.lcu.bicycle.user.domain.User;
@@ -30,7 +27,7 @@ public class UserDao {
 	 */
 	public boolean ajaxValidateLoginname(String loginname) throws SQLException {
 		
-		String sql = "select count(1) from user_tb where username=?";
+		String sql = "select count(1) from user where UserName=?";
 		Number number = (Number) qr.query(sql, new ScalarHandler(), loginname);
 		
 		return number.intValue() == 0;
@@ -44,7 +41,7 @@ public class UserDao {
 	 */
 	public User findByUsernameAndPassword(String username,String password) throws SQLException {
 		
-		String sql = "select * from user_tb where username=? and password=?";
+		String sql = "select * from user where UserName=? and UserPassword=?";
 		return qr.query(sql, new BeanHandler<User>(User.class), username, password);
 		 
 	}

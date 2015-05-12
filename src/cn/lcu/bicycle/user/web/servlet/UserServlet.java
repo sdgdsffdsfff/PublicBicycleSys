@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.filefilter.RegexFileFilter;
-
+import net.sf.json.JSONObject;
 import cn.itcast.commons.CommonUtils;
 import cn.itcast.servlet.BaseServlet;
-import cn.itcast.vcode.utils.VerifyCode;
 import cn.lcu.bicycle.user.domain.User;
 import cn.lcu.bicycle.user.service.UserService;
 

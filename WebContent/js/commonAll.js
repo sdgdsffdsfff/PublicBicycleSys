@@ -38,7 +38,7 @@ $(function() {
 	$("#show_hide_btn").click(function() {
 		switchSysBar();
 	});
-	
+		
 	
 });
 

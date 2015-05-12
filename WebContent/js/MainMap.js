@@ -27,7 +27,6 @@ dojo.require("dijit.form.CheckBox");
 dojo.require("dojo.domReady!");
 
 dojo.addOnLoad(function() {
-
 	
 			var map = new esri.Map("main", {
 				logo : false,
@@ -94,7 +93,7 @@ dojo.addOnLoad(function() {
 			});
 			overviewMapDijit.startup();
 
-			// //量算工具
+			 //量算工具
 			dojo.parser.parse();
 			esriConfig.defaults.geometryService = new esri.tasks.GeometryService(
 					"http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer");
@@ -103,8 +102,6 @@ dojo.addOnLoad(function() {
 			}, dojo.byId("measurementDiv"));
 			measurement.startup();
 			
-	
-		         
 		         
 
 		});
