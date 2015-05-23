@@ -114,10 +114,10 @@ function validateVerifyCode() {
 			},
 			url : "/PublicBicycleSys/UserServlet",
 			success : function(flag) {
-				if (!flag) {
-					$("#verifyCodeError").css("display", "");
-					$("#verifyCodeError").text("错误的验证码！");
-					bool = false;
+				if(!flag){
+				$("#verifyCodeError").css("display", "");
+				$("#verifyCodeError").text("错误的验证码！");
+				bool = false;
 				}
 			}
 		});

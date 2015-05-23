@@ -39,7 +39,6 @@ $(function() {
 		switchSysBar();
 	});
 		
-	
 });
 
 /*
@@ -70,7 +69,7 @@ function switchBar(index) {
 /**退出系统**/
 function logout() {
 	if (confirm("您确定要退出本系统吗？")) {
-		window.location.href = "login.html";
+		window.location.href = "PublicBicycleSys/jsps/UserLogin.jsp";
 	}
 }
 
@@ -84,11 +83,11 @@ function switchSysBar(flag) {
 	if (flag == true) {
 		left_menu_cnt.show(0);
 		side.css({
-			width : '350px'
+			width : '380px'
 		});
 
 		$('#main').css({
-			left : '350px'
+			left : '380px'
 		});
 	} else {
 	//当点击打开或关闭菜单按钮时来判断（打开时运行关闭操作，关闭时运行打开操作）	
@@ -99,8 +98,6 @@ function switchSysBar(flag) {
 			side.css({
 				width : '60px'
 			});
-			
-
 			$('#main').css({
 				left : '60px',
 			});
@@ -110,13 +107,10 @@ function switchSysBar(flag) {
 			//状态：打开  动作：关闭
 			left_menu_cnt.show(0);
 			side.css({
-				width : '350px'
+				width : '380px'
 			});
-			
-
-			
 			$('#main').css({
-				left : '350px'
+				left : '380px'
 			});
 			$("#show_hide_btn").find('img').attr('src', 'images/common/nav_hide.png');
 		}

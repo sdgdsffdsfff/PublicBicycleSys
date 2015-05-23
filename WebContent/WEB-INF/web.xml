@@ -34,7 +34,7 @@
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  <servlet>
     <servlet-name>BicyclePointServlet</servlet-name>
     <servlet-class>cn.lcu.bicycle.BicyclePoint.servlet.BicyclePointServlet</servlet-class>
   </servlet>
@@ -42,5 +42,6 @@
     <servlet-name>BicyclePointServlet</servlet-name>
     <url-pattern>/BicyclePointServlet</url-pattern>
   </servlet-mapping>
+  
   
 </web-app>

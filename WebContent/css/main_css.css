@@ -82,13 +82,13 @@ html, body {
 	left: 0;
 	top: 70px;
 	bottom: 0px;
-	width: 350px;
+	width: 380px;
 	overflow: hidden;
 }
 
 #main {
 	position: absolute;
-	left: 350px;
+	left: 380px;
 	top: 70px;
 	bottom: 0px;
 	right: 0px;
@@ -109,7 +109,7 @@ html, body {
 }
 
 #left_menu_cnt {
-	width: 290px;
+	width: 320px;
 	position: absolute;
 	top: 0px;
 	bottom: 0px;
@@ -120,13 +120,13 @@ html, body {
 
 #left_menu_cnt #nav_module {
 	position: fixed;
-	padding-left: 10px;
+	padding-left: 17px;
 	background: #F1F1F1;
 }
 
 #left_menu_cnt {
 	margin-top: 0px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 #nav_resource1 {
@@ -202,5 +202,17 @@ html, body {
          top: 18px;
 
       }
-      
+td.details-control {
+    background: url(/PublicBicycleSys/images/common/details_open.png) no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url(/PublicBicycleSys/images/common/details_close.png) no-repeat center center;
+}
 
+.esriAttributeInspector {height:205px;}
+.esriAttributeInspector .atiLayerName {display:none;}
+.saveButton {
+    margin-left:35px !important;
+    margin-top: 0.4px !important;
+       }

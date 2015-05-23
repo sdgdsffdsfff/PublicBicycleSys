@@ -1,13 +1,18 @@
+var map = null;
+var MyTiledMapServiceLayer;
+var BicyclePoint = null;
+/*
+ * pointedit 用来编辑站点的FeatureLayer
+ */
+var PointEdit = null;
 dojo.require("esri.map");
 dojo.require("esri.dijit.HomeButton");
 dojo.require("esri.dijit.Scalebar");
 dojo.require("esri.dijit.OverviewMap");
-
 dojo.require("dojo.dom");
 dojo.require("esri.Color");
 dojo.require("dojo.keys");
 dojo.require("dojo.parser");
-
 dojo.require("esri.config");
 dojo.require("esri.sniff");
 dojo.require("esri.SnappingManager");
@@ -19,7 +24,6 @@ dojo.require("esri.symbols.SimpleLineSymbol");
 dojo.require("esri.symbols.SimpleFillSymbol");
 dojo.require("esri.InfoTemplate");
 dojo.require("esri.dijit.Search");
-
 dojo.require("dijit.layout.BorderContainer");
 dojo.require("dijit.layout.ContentPane");
 dojo.require("dijit.TitlePane");
@@ -28,12 +32,17 @@ dojo.require("dojo.domReady!");
 
 dojo.addOnLoad(function() {
 	
-			var map = new esri.Map("main", {
+	
+
+//    	esriConfig.defaults.io.proxyUrl = "http://localhost:8080/Java/proxy.jsp";
+//    	esriConfig.defaults.io.alwaysUseProxy = true;
+    
+			map = new esri.Map("main", {
 				logo : false,
 				zoom : 14
 			});
 			// 瓦片全国地图图层
-			var MyTiledMapServiceLayer = new esri.layers.ArcGISTiledMapServiceLayer(
+			MyTiledMapServiceLayer = new esri.layers.ArcGISTiledMapServiceLayer(
 					"http://cache1.arcgisonline.cn/ArcGIS/rest/services/ChinaCities_Community_BaseMap_CHN/HangZhou_Community_BaseMap_CHN/MapServer");
 			map.addLayer(MyTiledMapServiceLayer);
 
@@ -47,17 +56,22 @@ dojo.addOnLoad(function() {
 					+ "<b>站点状态：</b>${STATE}<br/>"
 			);
 
-			var BicyclePoint = new esri.layers.FeatureLayer(
+			BicyclePoint = new esri.layers.FeatureLayer(
 					"http://localhost:6080/arcgis/rest/services/BicyclePoint/MapServer/0",
 					{
-						mode : esri.layers.FeatureLayer.MODE_SNAPSHOT,
+						mode : esri.layers.FeatureLayer.MODE_SNAPSHOT,   //MODE_SNAPSHOT
 						infoTemplate : infoTemplate,
 						outFields : [ "NO", "NAME", "TIME", "TYPE", "ADDRESS",
 								"TEL", "STATE" ]
 					});
 			map.addLayer(BicyclePoint);
 
-			
+			PointEdit = new esri.layers.FeatureLayer("http://localhost:6080/arcgis/rest/services/BicyclePoint/FeatureServer/0", {
+		          mode: esri.layers.FeatureLayer.MODE_SELECTION,
+		          outFields: [ "NO", "NAME", "TIME", "TYPE", "ADDRESS","TEL", "STATE" ]
+		        });
+		    map.addLayer(PointEdit);
+		    
 			 var s = new esri.dijit.Search({
 				 map: map,
 				 addLayersFromMap :true,

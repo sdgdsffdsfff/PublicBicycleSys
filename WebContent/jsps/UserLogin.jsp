@@ -8,9 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>公共自行车管理系统</title>
 
+<script type="text/javascript" language="javascript" src="/PublicBicycleSys/js/PlugIn/pace1.0.2.js"></script>
+<link rel="stylesheet" type="text/css" href="/PublicBicycleSys/css/PlugInCSS/pace-themes/white/pace-theme-flat-top.css">
+
 <link href="/PublicBicycleSys/css/User/UserLogin.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/PublicBicycleSys/jquery/jquery-1.5.1.js"></script>
 <script type="text/javascript" src="/PublicBicycleSys/js/User/UserLogin.js"></script>
+
 
 
 <script type="text/javascript">
