@@ -8,6 +8,8 @@
 
 <link href="css/main_css.css" rel="stylesheet" type="text/css" />
 
+
+
 <!-- buttons按钮css库 -->
 <link href="css/PlugInCSS/buttons.css" rel="stylesheet" type="text/css" />
 <link href="css/PlugInCSS/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -130,9 +132,9 @@
 	<!-- 地图控件部分 	-->
 	<div id="main">
 		<div id="HomeButton"></div>
-		<div id="titlePane" data-dojo-type="dijit/TitlePane"
-			data-dojo-props="title:'地图测量', close:'true'">
-			<div id="measurementDiv"></div>
+		<div id="BasemapToggle"></div>
+		<div id="titlePane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'地图测量', close:'true'">
+		<div id="measurementDiv"></div>
 		</div>
 	</div>
 
