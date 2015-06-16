@@ -1,27 +1,19 @@
 var namesearch;
 var template;
-var editFlag;
 var updateFeature;
 /**
  *判断是否编辑 
  */
-var	editFlag = true;
+var	isEdit = false;
 
 $(document).ready(function() {
 
 	var tpl = $("#tpl").html();
 	//预编译模板
 	template = Handlebars.compile(tpl);
-   
-	/**
-	 *点的添加
-	 */
-	$("div.add").click(function() {
-		alert("在数据库和地图上添加一个站点，并记录操作数据1");
-	});
 
    /**
-    *点击行点中心显示 
+    *点击行点中心显示  （显示方法后期可封装）
     */ 
 	$('#bicycleTable tbody').on('click', 'td.details-search', function() {
 		var tr = $(this).closest('tr');
@@ -30,7 +22,7 @@ $(document).ready(function() {
 		Show();
 	});
 	/**
-    *点击行点中心显示 
+    *点击行点中心显示 （显示方法后期可封装）
     */ 
 	$('#bicycleTable tbody').on('click', 'td.sorting_1', function() {
 		var tr = $(this).closest('tr');
@@ -46,21 +38,21 @@ $(document).ready(function() {
 		console.log(tr);
 		var row = table.row(tr);
 		if (row.child.isShown()) {
-			// This row is already open - close it
+			// 折叠本行
 			row.child.hide();
 			tr.removeClass('shown');
 		} else {
-			// Open this row
+			// 展开本行
 			row.child(format(row.data())).show();
 			tr.addClass('shown');
 		}
 	});
 	
+	//暂时不用了，本想用于对表格删除修改等的精细操作  而不是整体刷新
 	// $('#bicycleTable tbody').on('click', 'td.details-edit', function() {
 		// var Edit_tr = $(this).closest('tr');
 		// var Edit_row = table.row(Edit_tr);
-		// console.log(namesearch+"霍一心");
-// 		
+		// console.log(namesearch+"霍一心");	
 	// });
 	
 });
@@ -111,6 +103,7 @@ function PointEditing(name, number, address, remarks, time, tel) {
           	 console.log("saveButton");
         	if(confirm("将进行修改操作，操作记录将会被详细记录。是否确认修改！")){
 	 			//先是在地图属性中修改
+	 			isEdit = true;
          		updateFeature.getLayer().applyEdits(null, [updateFeature], null);
            		map.infoWindow.hide();
 				map.graphics.clear();
@@ -139,6 +132,7 @@ function PointEditing(name, number, address, remarks, time, tel) {
          	console.log("delete");
 			if(confirm("将进行删除操作，操作记录将会被详细记录。是否确认删除！")){
 	 		//先是在地图属性中删除
+	 			isEdit = true;
          		evt.feature.getLayer().applyEdits(null, null, [evt.feature]);
           		map.infoWindow.hide();
           		map.graphics.clear();
@@ -151,36 +145,7 @@ function PointEditing(name, number, address, remarks, time, tel) {
 		/**
 		 *通过获取被点击表格信息的编号，查询图层得到对应的  
 		 */
-		// var selectQuery = new Query();
-		// selectQuery.where = "NO = '" + number + "'";
-		// PointEdit.queryFeatures(selectQuery, function(results) {
-			// updateFeature = results.features;
-			// console.log(updateFeature);
-			// var screenPoint = map.toScreen(updateFeature[0].geometry);
-			// selectQuery.geometry = updateFeature[0].geometry;
-			
-		    // PointEdit.selectFeatures(selectQuery, FeatureLayer.SELECTION_NEW, function(features) {
-              // if (features.length > 0) {
-				// //拿到当前查到的图形
-                // updateFeature = features[0];
-                // map.infoWindow.setTitle("属性编辑");
-                // console.log("坐标"+screenPoint.x+screenPoint.y);
-                // //显示含有attribute的IforWindows
-                // map.infoWindow.show(screenPoint, map.getInfoWindowAnchor(screenPoint));
-                // //设置标志
-				// var picsms = new PictureMarkerSymbol("/PublicBicycleSys/images/animate.gif",21, 56);
-				// map.graphics.add(new Graphic(updateFeature.geometry, picsms));
-                // //设置显示点居中显示
-                // map.centerAndZoom(updateFeature.geometry, 16);
-              // }
-              // else {
-                // map.infoWindow.hide();
-              // }
-            // });
-         
-		// });
 		map.graphics.clear();
-		
 		var selectQuery = new Query();
 		selectQuery.where = "NO = '" + number + "'";		
 		PointEdit.selectFeatures(selectQuery, FeatureLayer.SELECTION_NEW, function(features) {
@@ -209,11 +174,11 @@ function PointEditing(name, number, address, remarks, time, tel) {
 	
 	});
 
-	
+	//？？？为什么会删除过几次  就刷新几次图层？？
 	//当编辑结束时刷新显示图层
 	    PointEdit.on("edits-complete", function() {
-	    	console.log("BicyclePoint.refresh");
-          	BicyclePoint.refresh();
+	    	console.log("BicyclePoint.refresh:编辑结束后");
+	    	BicyclePoint.refresh();
         });
 }
 

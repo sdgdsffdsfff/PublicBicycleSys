@@ -56,13 +56,17 @@ function getCookie(name){
 }  
 
 
-/**选择显示的菜单**/
+/**选择显示的菜单和工作条**/
 function switchBar(index) {
 	
 	$(".nav_resource").css('display','none'); 
 	var id = "nav_resource"+(index+1);
 	$("#"+id).css('display','block'); 
 	
+	
+	$(".WorkingTab").css('display','none'); 
+	var id = "WorkingTab"+(index+1);
+	$("#"+id).css('display','block'); 
 }
 
 

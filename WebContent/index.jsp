@@ -19,7 +19,7 @@
 <!-- Arcgis API CSS-->
 <!-- <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/tundra/tundra.css"> -->
 <!-- <link rel="stylesheet" href="http://localhost:8081/arcgis_js_api/library/3.13/3.13/dijit/themes/tundra/tundra.css"> -->
-   <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
+<link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
 <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
 <!-- <link rel="stylesheet" href="http://localhost:8081/arcgis_js_api/library/3.13/3.13/esri/css/esri.css"> -->
 
@@ -27,9 +27,8 @@
 <link rel="stylesheet" type="text/css" href="css/PlugInCSS/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="css/PlugInCSS/tabledemo.css">
 
-
-<script src="http://js.arcgis.com/3.13/"></script>
-<!-- <script src="http://localhost:8081/arcgis_js_api/library/3.13/3.13/init.js"></script> -->
+<!-- <script src="http://js.arcgis.com/3.13/"></script> -->
+<script src="http://localhost:8081/arcgis_js_api/library/3.13/3.13/init.js"></script>
 
 
 <script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
@@ -50,6 +49,14 @@
 
 <!-- <script type="text/javascript" language="javascript" src="/PublicBicycleSys/js/PlugIn/pace1.0.2.js"></script> -->
 <!-- <link rel="stylesheet" type="text/css" href="/PublicBicycleSys/css/PlugInCSS/pace-themes/white/pace-theme-flat-top.css"> -->
+
+<script>
+      var dojoConfig = { 
+        paths: {
+          extras: location.pathname.replace(/\/[^/]+$/, "") + "/extras"
+        }
+      };
+</script>
 
 </head>
 <body class="claro">
@@ -136,6 +143,26 @@
 		<div id="titlePane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'地图测量', close:'true'">
 		<div id="measurementDiv"></div>
 		</div>
+		
+		 <div id = "WorkingTab1" class="button-group WorkingTab">
+    		<button type="button" class="button button-primary button-rounded button-small">调配人员</button>
+    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
+    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
+  		 </div>
+  		<div id = "WorkingTab2" class="button-group WorkingTab">
+    		<button type="button" class="button button-primary button-rounded button-small">调配人员</button>
+    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
+    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
+    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
+    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
+  		 </div>
+  		 <div id = "WorkingTab3" class="button-group WorkingTab">
+    		<button type="button" class="button button-primary button-rounded button-small">调配人员</button>
+    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
+    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
+    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
+  		 </div>
+  
 	</div>
 
 </body>
