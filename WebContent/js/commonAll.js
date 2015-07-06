@@ -38,7 +38,29 @@ $(function() {
 	$("#show_hide_btn").click(function() {
 		switchSysBar();
 	});
+	
+	$("#GeneralAnalysis").click(function(){
+		console.log("generalanalysis");
 		
+		require(["dojo/dom","extras/Widgets/GeneralAnalysis", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+				function(dom,GeneralAnalysis,win,fx,style){
+			
+			if(dojo.byId("dijit__WidgetsInTemplateMixin_0")){
+				style.set("dijit__WidgetsInTemplateMixin_0", "z-index", "10");
+				fx.fadeIn({
+					node : dom.byId("dijit__WidgetsInTemplateMixin_0"),
+					duration : 500,
+					onEnd : function() {
+							}
+			}).play();
+				
+			}else{
+				var generalAn = new GeneralAnalysis();
+				generalAn.placeAt(win.body());
+				generalAn.startup();
+			}
+		});
+	});
 });
 
 /*

@@ -1,0 +1,73 @@
+<div>
+	<div id="GATitle" >
+		<div id="buttonN" >
+			<span data-dojo-attach-point="WeigetName" id = "TitleWeight">站点一般分析</span>
+		</div>
+		<div id="buttonC" >
+			<button id= "buttonClose" class="button button-caution button-square button-tiny" data-dojo-attach-event="click:close">
+				<i class="fa fa-times"></i>
+			</button>
+		</div>
+	</div>
+	<div id="tc1" data-dojo-type="dijit/layout/TabContainer" data-dojo-props="style: { height: '400px', width: '430px' }">
+		<div id="atab1" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: '区域站点评价'">
+			<!-- 区域站点评价 -->
+			<div>
+				
+				<!-- 区域选项卡 ：按地区  按绘制图形-->
+				<div id = "GAfirst" style="height: 25px; margin:10px auto;" >
+				<form id="myform" style="text-align:center;" >
+    			<input type="radio" data-dojo-type="dijit/form/RadioButton" name="drink" id="radioOne" value="城市区划" checked /> <label for="radioTwo">城市区划</label> 
+    			 
+    			<select data-dojo-type="dijit/form/FilteringSelect" id="fruit" name="fruit" data-dojo-props="style: { width:'90px' ,margin:'0px 12px 0px 0px'}" >
+    				<option value="XH">西湖区</option>
+    				<option value="GY">拱墅区</option>
+    				<option value="SC" selected >上城区</option>
+    				<option value="XC">下城区</option>
+    				<option value="BJ">滨江区</option>
+    				<option value="JG">江干区</option>
+				</select>
+
+   				<input type="radio" data-dojo-type="dijit/form/RadioButton" name="drink" id="radioTwo" value="自绘图形"
+   				data-dojo-props="style: {margin:'0px 0px 0px 12px'}"/> <label for="radioTwo">自绘图形</label> 
+   				 
+   				<select data-dojo-type="dijit/form/FilteringSelect" id="fruit2" name="fruit2" data-dojo-props="style: { width: '90px' }" >
+    				<option value="Polygon" selected >多边形</option>
+    				<option value="Circle">圆形</option>
+    				<option value="FreehandPolygon">自由绘制</option>
+				</select>
+
+				</form>
+				</div>
+				
+				
+				<div style="height: 250px; width: 420px; ">
+				<!-- <form id="myform2" style="text-align:center;" > -->
+				<!-- 柱状图1 ： 站点密度 服务点密度  -->
+				<div id = "Chart_md" style="float:left; height: 250px; width: 210px; "></div>
+				<!-- 柱状图1 ： 站点覆盖率  服务点覆盖率 -->
+				<div id = "Chart_fgl" style="float:right; height: 250px; width: 210px;"></div>
+				<!-- </form> -->
+				</div>
+				
+				<!-- 功能按钮 ：分析 清除-->
+				<div id = "GAthree" style="text-align:center;" >
+				<!-- <button data-dojo-type="dijit/form/Button" >分析结果</button> -->
+				<!-- <button data-dojo-type="dijit/form/Button" >清空地图</button> -->
+				<button class="button button-primary button-rounded button-small" data-dojo-attach-event="click:startAnalysis" style="margin:5px 25px 0px 0px;">开始分析</button>
+				<button class="button button-caution button-rounded button-small" data-dojo-attach-event="click:cleanMap" style="margin:5px 0px 0px 25px;">清空地图</button>
+				</div>
+			</div>
+		</div>
+		<div id="atab2" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: '站点分析'">
+
+		</div>
+		<div id="atab3" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: '服务点分析'">
+
+		</div>
+		<div id="atab4" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: '基础数据分析'">
+
+		</div>
+	</div>
+	<div data-dojo-type="dijit/ProgressBar" id = "GeneralA_progress" class="progress-bar-info" style="margin:0 auto; display:none;" data-dojo-props="indeterminate: true"></div>
+</div>

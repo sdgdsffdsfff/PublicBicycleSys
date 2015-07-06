@@ -67,6 +67,7 @@ function format(d) {
  */
 function PointEditing(name, number, address, remarks, time, tel) {
 	console.log(name + number);
+	
 	/**
 	 *点击后开始按编号查询  弹出对象的可编辑infowindow
 	 */
@@ -92,7 +93,8 @@ function PointEditing(name, number, address, remarks, time, tel) {
         Query,dojoQuery,
         parser, domConstruct, Button
 			) {
-
+				
+		
 		//设置AttributeInspector
 		var attInspector = new AttributeInspector({layerInfos : layerInfos}, domConstruct.create("div"));
    		var saveButton = new Button({ label: "保存", "class": "saveButton"},domConstruct.create("div"));
@@ -147,7 +149,8 @@ function PointEditing(name, number, address, remarks, time, tel) {
 		 */
 		map.graphics.clear();
 		var selectQuery = new Query();
-		selectQuery.where = "NO = '" + number + "'";		
+		selectQuery.where = "NO = '" + number + "'";	
+		var PointEdit = map.getLayer("PointEdit");
 		PointEdit.selectFeatures(selectQuery, FeatureLayer.SELECTION_NEW, function(features) {
               if (features.length > 0) {
 				//拿到当前查到的图形
@@ -170,14 +173,14 @@ function PointEditing(name, number, address, remarks, time, tel) {
             });
             
 		map.infoWindow.setContent(attInspector.domNode);
-		map.infoWindow.resize(300, 400);
-	
+		map.infoWindow.resize(300,600);
 	});
 
 	//？？？为什么会删除过几次  就刷新几次图层？？
 	//当编辑结束时刷新显示图层
-	    PointEdit.on("edits-complete", function() {
-	    	console.log("BicyclePoint.refresh:编辑结束后");
+	var PointEdit = map.getLayer("PointEdit");
+	PointEdit.on("edits-complete", function() {
+		var BicyclePoint = map.getLayer("BicyclePoint");
 	    	BicyclePoint.refresh();
         });
 }
@@ -193,6 +196,7 @@ function Show() {
 		//map.infoWindow.hide();
 		var query = new Query();
 		query.where = "NO = '" + namesearch + "'";
+		var BicyclePoint = map.getLayer("BicyclePoint");
 		BicyclePoint.queryFeatures(query, function(results) {
 			var features = results.features;
 			//设置标志

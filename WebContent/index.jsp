@@ -9,7 +9,6 @@
 <link href="css/main_css.css" rel="stylesheet" type="text/css" />
 
 
-
 <!-- buttons按钮css库 -->
 <link href="css/PlugInCSS/buttons.css" rel="stylesheet" type="text/css" />
 <link href="css/PlugInCSS/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -17,21 +16,48 @@
 <link rel="stylesheet" href="css/PlugInCSS/font-awesome.css">
 
 <!-- Arcgis API CSS-->
-<!-- <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/tundra/tundra.css"> -->
 <!-- <link rel="stylesheet" href="http://localhost:8081/arcgis_js_api/library/3.13/3.13/dijit/themes/tundra/tundra.css"> -->
-<link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css">
+<!-- <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css"> -->
+
+<!-- Arcgis API CSS 扁平化样式-->
 <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+<link rel="Stylesheet" type="text/css" href="css/DOJO_Them_CSS/dojo/flat.css"/>
+<link rel="Stylesheet" type="text/css" href="css/DOJO_Them_CSS/esri/css/esri_custom.css"/>
+
+<!-- dgrid扁平化样式 -->
+<link rel="Stylesheet" type="text/css" href="css/DOJO_Them_CSS/dgrid/css/dgrid.css"/>
+<link rel="Stylesheet" type="text/css" href="css/DOJO_Them_CSS/dgrid/css/skins/skin.css"/>
+ 
 <!-- <link rel="stylesheet" href="http://localhost:8081/arcgis_js_api/library/3.13/3.13/esri/css/esri.css"> -->
 
 <!-- 表格控件css -->
 <link rel="stylesheet" type="text/css" href="css/PlugInCSS/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="css/PlugInCSS/tabledemo.css">
 
+<!--小部件 -->
+<link rel="stylesheet" type="text/css" href="dojo/extras/Widgets/themes/GeneralAnalysis.css">
+
+
+<!-- jquery -->
+<script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
+
+<!-- 表格 -->
+<script type="text/javascript" language="javascript" src="js/PlugIn/jquery.dataTables.js"></script>
+<script type="text/javascript" language="javascript" src="js/PlugIn/shCore.js"></script>
+<script type="text/javascript" language="javascript" src="js/PlugIn/demo.js"></script>
+<script type="text/javascript" language="javascript" src="js/BicycleTable.js"></script>
+
+<script>
+      var dojoConfig = { 
+        paths: {
+        	extras: "http://localhost:8080/PublicBicycleSys/dojo/extras"
+        },
+        async: true
+      	};
+</script>
+
 <!-- <script src="http://js.arcgis.com/3.13/"></script> -->
 <script src="http://localhost:8081/arcgis_js_api/library/3.13/3.13/init.js"></script>
-
-
-<script type="text/javascript" language="javascript" src="jquery/jquery.js"></script>
 
 <!-- handlebars -->
 <script type="text/javascript" language="javascript" src="js/PlugIn/handlebars-1.0.0.beta.6.js"></script>
@@ -40,23 +66,10 @@
 <!-- 地图操作部分dojo -->
 <script type="text/javascript" src="js/MainMap.js"></script>
 
-
-<!-- 表格 -->
-<script type="text/javascript" language="javascript" src="js/PlugIn/jquery.dataTables.js"></script>
-<script type="text/javascript" language="javascript" src="js/PlugIn/shCore.js"></script>
-<script type="text/javascript" language="javascript" src="js/PlugIn/demo.js"></script>
-<script type="text/javascript" language="javascript" src="js/BicycleTable.js"></script>
-
 <!-- <script type="text/javascript" language="javascript" src="/PublicBicycleSys/js/PlugIn/pace1.0.2.js"></script> -->
 <!-- <link rel="stylesheet" type="text/css" href="/PublicBicycleSys/css/PlugInCSS/pace-themes/white/pace-theme-flat-top.css"> -->
 
-<script>
-      var dojoConfig = { 
-        paths: {
-          extras: location.pathname.replace(/\/[^/]+$/, "") + "/extras"
-        }
-      };
-</script>
+
 
 </head>
 <body class="claro">
@@ -97,6 +110,9 @@
 
 				<li id="left_tab3" title="任务分配"><img title="任务分配"
 					src="images/common/3.jpg" width="33" height="31"></li>
+					
+				<li id="left_tab4" title="数据分析"><img title="数据分析"
+					src="images/common/4.jpg" width="33" height="31"></li>
 
 			</ul>
 
@@ -143,7 +159,6 @@
 		<div id="titlePane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'地图测量', close:'true'">
 		<div id="measurementDiv"></div>
 		</div>
-		
 		 <div id = "WorkingTab1" class="button-group WorkingTab">
     		<button type="button" class="button button-primary button-rounded button-small">调配人员</button>
     		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
@@ -161,6 +176,12 @@
     		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
     		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
     		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
+  		 </div>
+  		 <div id = "WorkingTab4" class="button-group WorkingTab">
+    		<button type="button" id= "GeneralAnalysis" class="button button-primary button-rounded button-small">站点一般分析</button>
+    		<button type="button" class="button button-primary button-rounded button-small">历史数据分析</button>
+    		<button type="button" class="button button-primary button-rounded button-small">调配分区</button>
+    		<button type="button" class="button button-primary button-rounded button-small">预测分析 </button>
   		 </div>
   
 	</div>
