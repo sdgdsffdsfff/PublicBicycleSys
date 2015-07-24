@@ -1,5 +1,109 @@
+	/*小部件：站点管理 调配人员管理*/
+	#Widget_PeoManage{
+	position: absolute;
+	left: 0px;
+	z-index: 200;
+	width: 800px;
+	background-color: #EEEEEE;
+	}	
+	#PMTitle{
+		height: 24px;
+		z-index: 50;
+	}
+	#PMTitleName{
+			background:  #1B9AF7;
+			color: #FFFFFF;
+			float:left;
+			width: 776px;
+			height: 24px;
+			text-align:left;
+	}
+	#PMTitleClose{
+			float:right;
+			width: 24px;
+			height: 24px;
+	}
+	#TitleWeight { 
+		line-height:24px; 
+		font-size:12px;
+		font-weight:bold;
+		padding: 0px 0px 0px 10px;
+		}
+	#PMcontent{
+		width: 800px;
+		height: auto;
+	}
+	#EmployeeTableContent{
+		padding: 5px 10px 5px 10px;
+		height: auto;
+	}
+	#Employee_filter{
+		padding: 5px 5px 5px 5px;
+	}
+	.Employee_bottom{
+		
+		padding: 5px 5px 5px 5px;
+		height: auto;
+	}
+	#Employee {
+		text-align:center
+	}
+	
+/*小部件：站点管理 调配车辆管理*/
+#Widget_CarManage{
+	position: absolute;
+	top: 90px;
+	left: 450px;
+	z-index: 200;
+	width: 1000px;
+	background-color: #EEEEEE;
+	}
+	#CarTitle{
+		height: 24px;
+		z-index: 50;
+	}
+	#CarTitleName{
+			background:  #1B9AF7;
+			color: #FFFFFF;
+			float:left;
+			width: 976px;
+			height: 24px;
+			text-align:left;
+	}
+	#CarTitleClose{
+			float:right;
+			width: 24px;
+			height: 24px;
+	}
+	#TitleWeight { 
+		line-height:24px; 
+		font-size:12px;
+		font-weight:bold;
+		padding: 0px 0px 0px 10px;
+		}
+	#CarMonitorContent{
+		width: 800px;
+		height: 280px;
+	}
+	#CarManageTableContent{
+		padding: 0px 10px 0px 10px;
+	}
+	#CarManageTable_filter{
+		padding: 10px;
+	}
+	.CarManageTable_bottom{
+		
+		padding: 10px;
+		height: auto;
+	}
+	#CarManageTable{
+		text-align:center
+	}
+	
+
+
 	/*小部件：数据分析 站点一般分析*/
-	#dijit__WidgetsInTemplateMixin_0{
+	#Widget_GeneralAnalysis{
 	position: absolute;
 	top: 90px;
 	left: 450px;
@@ -33,5 +137,46 @@
 		padding: 0px 0px 0px 10px;
 		}
 
+/*小部件：站点监控 单车跟踪监控*/
 
 
+#Widget_GPSMonitor{
+	position: absolute;
+	top: 90px;
+	left: 450px;
+	z-index: 200;
+	width: 630px;
+	background-color: #EEEEEE;
+	}
+	#GPSTitle{
+		height: 24px;
+		z-index: 50;
+	}
+	#GPSTitleName{
+			background:  #1B9AF7;
+			color: #FFFFFF;
+			float:left;
+			width: 606px;
+			height: 24px;
+			text-align:left;
+	}
+	#GPSTitleClose{
+			float:right;
+			width: 24px;
+			height: 24px;
+	}
+	#TitleWeight { 
+		line-height:24px; 
+		font-size:12px;
+		font-weight:bold;
+		padding: 0px 0px 0px 10px;
+		}
+	#GPSMonitorContent{
+		width: 630px;
+		height: auto;
+	}
+	#CarMassage{
+		height: 25px;
+	}
+		
+		

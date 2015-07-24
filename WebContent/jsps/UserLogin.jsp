@@ -37,7 +37,6 @@
 
 			<form action="/PublicBicycleSys/UserServlet" method="post" id="loginForm">
 				<input type="hidden" name="method" value="Login" />
-
 				<table id="tableForm">
 
 					<tr>

@@ -1,4 +1,4 @@
-package cn.lcu.bicycle.BicyclePoint.dao;
+package cn.lcu.bicycle.Employee.dao;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,17 +8,17 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import cn.itcast.jdbc.TxQueryRunner;
-import cn.lcu.bicycle.BicyclePoint.domain.BicyclePoint;
+import cn.lcu.bicycle.Employee.domain.Employee;
 
 
 /**
- * 点数据管理模块持久层
+ * 员工数据管理模块持久层
  * 
  * @author Administrator
  *
  */
 
-public class BicyclePointDao {
+public class EmployeeDao {
 	
 	static ObjectMapper objectMapper;
 	private QueryRunner qr = new TxQueryRunner();
@@ -26,15 +26,15 @@ public class BicyclePointDao {
 
 
 	/**
-	 * 支持ajax的数据提取，提取所有自行车公共点的数据
+	 * 支持ajax的数据提取，提取所有员工数据
 	 * 
 	 * @throws SQLException
 	 */
 	
 	public String ajaxShowAllDate() throws SQLException {
-		String sql = "select * from bicyclepoint";
+		String sql = "select * from Employee";
 		
-		List<BicyclePoint> mapList = qr.query(sql, new BeanListHandler<BicyclePoint>(BicyclePoint.class));
+		List<Employee> mapList = qr.query(sql, new BeanListHandler<Employee>(Employee.class));
 		
 		return toJSon(mapList);
 	}

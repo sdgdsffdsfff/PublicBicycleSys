@@ -1,4 +1,4 @@
-define(["dojo/_base/declare", "dojo/dnd/Moveable", "dijit/_WidgetBase",
+define(["dojo/_base/declare", "dojo/dnd/move", "dijit/_WidgetBase",
         "dijit/_AttachMixin", "dijit/_TemplatedMixin",
 		"dijit/_WidgetsInTemplateMixin",
 		"dojo/text!./templates/GeneralAnalysis.html", "dojo/dom",
@@ -32,7 +32,7 @@ define(["dojo/_base/declare", "dojo/dnd/Moveable", "dijit/_WidgetBase",
 		"dijit/form/RadioButton", "dijit/form/Button",
 		"dijit/form/FilteringSelect", "dijit/layout/TabContainer",
 		"dijit/layout/ContentPane", "dojo/domReady!" ],
-		function(declare, Moveable, _WidgetBase, _AttachMixin, _TemplatedMixin,_WidgetsInTemplateMixin, temstring, dom, lang, fx, style,
+		function(declare, move, _WidgetBase, _AttachMixin, _TemplatedMixin,_WidgetsInTemplateMixin, temstring, dom, lang, fx, style,
 				ProgressBar,
 				AreasAndLengthsParameters,
 				GeometryService,FeatureLayer,QueryTask,Query, Draw, SimpleMarkerSymbol, SimpleLineSymbol,SimpleFillSymbol, CartographicLineSymbol, Graphic, Color,
@@ -133,13 +133,13 @@ define(["dojo/_base/declare", "dojo/dnd/Moveable", "dijit/_WidgetBase",
 				close : function() {
 					console.log("fadeOut");
 						   fx.fadeOut({
-							   node : dom.byId("dijit__WidgetsInTemplateMixin_0"),
+							   node : dom.byId("Widget_GeneralAnalysis"),
 								duration : 300,
 								onEnd : function() {
 									map.enableMapNavigation();
 									map.graphics.clear();
 									Chart_md.removeSeries("PointValue");
-									style.set("dijit__WidgetsInTemplateMixin_0", "z-index", "-10");
+									style.set("Widget_GeneralAnalysis", "z-index", "-10");
 									}
 				            }).play();
 						   //修改z-index
@@ -151,14 +151,14 @@ define(["dojo/_base/declare", "dojo/dnd/Moveable", "dijit/_WidgetBase",
 						var BicyclePoint = map.getLayer("BicyclePoint");
 						// 渐变显示
 						fx.fadeIn({
-									node : dom.byId("dijit__WidgetsInTemplateMixin_0"),
+									node : dom.byId("Widget_GeneralAnalysis"),
 									duration : 300,
 									onEnd : function() {
+											// 可移动
+											var dnd = new move.parentConstrainedMoveable(dom.byId("Widget_GeneralAnalysis"), {handle: "GATitle", area: "content", within: true});
 											map.graphics.clear();
 											}
 						}).play();
-						// 可移动
-						var dnd = new Moveable(dom.byId("dijit__WidgetsInTemplateMixin_0"));
 						// 设置图表
 						this.setChart([ 50, 25], [50, 25 ]);
 						},
@@ -200,7 +200,7 @@ define(["dojo/_base/declare", "dojo/dnd/Moveable", "dijit/_WidgetBase",
 								//显示无刻度进度条
 								style.set("GeneralA_progress", "display", "block");
 								// 按照城市区划来选择图形 通过查询得到对应的geometry
-								var queryTask = new QueryTask("http://localhost:6080/arcgis/rest/services/BicyclePoint/FeatureServer/2");
+								var queryTask = new QueryTask("http://219.231.176.93:6080/arcgis/rest/services/PublicBicyclePoint/FeatureServer/2");
 								var query = new Query();
 								query.returnGeometry = true;
 								query.outFields = [ "*" ];

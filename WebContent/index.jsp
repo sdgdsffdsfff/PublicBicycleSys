@@ -43,6 +43,7 @@
 
 <!-- 表格 -->
 <script type="text/javascript" language="javascript" src="js/PlugIn/jquery.dataTables.js"></script>
+<script type="text/javascript" language="javascript" src="js/PlugIn/colResizable-1.5.min.js"></script>
 <script type="text/javascript" language="javascript" src="js/PlugIn/shCore.js"></script>
 <script type="text/javascript" language="javascript" src="js/PlugIn/demo.js"></script>
 <script type="text/javascript" language="javascript" src="js/BicycleTable.js"></script>
@@ -79,12 +80,34 @@
 			<img alt="logo" src="images/common/logo.jpg" width="548" height="49"
 				style="vertical-align: middle;">
 		</div>
+		<div  id ="Workingbutton">
+		 		<div id = "WorkingTab1" class="button-group WorkingTab">
+    				<button type="button" id= "PeoManage" class="button button-flat button-rounded button-small">调配人员</button>
+    				<button type="button" id= "CarManage" class="button  button-rounded button-small">调配车辆 </button>
+    				<button type="button" class="button  button-rounded button-small">车场信息</button>
+  		 		</div>
+  		 		<div id = "WorkingTab2" class="button-group WorkingTab">
+    				<button type="button" id= "GPSMonitors" class="button  button-rounded button-small">车辆信息监控</button>
+    				<button type="button" id= "GPSMonitor" class="button  button-rounded button-small">单车跟踪监控</button>
+  		 		</div>
+  		 		<div id = "WorkingTab3" class="button-group WorkingTab">
+    				<button type="button" class="button  button-rounded button-small">调配人员</button>
+    				<button type="button" class="button  button-rounded button-small">调配车辆 </button>
+    				<button type="button" class="button  button-rounded button-small">车场信息</button>
+    				<button type="button" class="button  button-rounded button-small">调配车辆 </button>
+  		 		</div>
+  		 		<div id = "WorkingTab4" class="button-group WorkingTab">
+    				<button type="button" id= "GeneralAnalysis" class="button  button-rounded button-small">站点一般分析</button>
+    				<button type="button" class="button  button-rounded button-small">历史数据分析</button>
+    				<button type="button" class="button  button-rounded button-small">调配分区</button>
+    				<button type="button" class="button  button-rounded button-small">预测分析 </button>
+  		 		</div>
+			</div>
 		<div id="top_links">
 			<div id="top_op">
 				<ul>
 					<li><img alt="当前用户" src="images/common/user.jpg">： <span
 						id="username"></span></li>
-					<li><div id="search"></div></li>
 				</ul>
 			</div>
 			<div id="top_close">
@@ -153,38 +176,18 @@
 		</div>
 	</div>
 	<!-- 地图控件部分 	-->
+	<div id="map">
 	<div id="main">
+	
 		<div id="HomeButton"></div>
+		
 		<div id="BasemapToggle"></div>
+		
 		<div id="titlePane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'地图测量', close:'true'">
 		<div id="measurementDiv"></div>
 		</div>
-		 <div id = "WorkingTab1" class="button-group WorkingTab">
-    		<button type="button" class="button button-primary button-rounded button-small">调配人员</button>
-    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
-    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
-  		 </div>
-  		<div id = "WorkingTab2" class="button-group WorkingTab">
-    		<button type="button" class="button button-primary button-rounded button-small">调配人员</button>
-    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
-    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
-    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
-    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
-  		 </div>
-  		 <div id = "WorkingTab3" class="button-group WorkingTab">
-    		<button type="button" class="button button-primary button-rounded button-small">调配人员</button>
-    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
-    		<button type="button" class="button button-primary button-rounded button-small">车场信息</button>
-    		<button type="button" class="button button-primary button-rounded button-small">调配车辆 </button>
-  		 </div>
-  		 <div id = "WorkingTab4" class="button-group WorkingTab">
-    		<button type="button" id= "GeneralAnalysis" class="button button-primary button-rounded button-small">站点一般分析</button>
-    		<button type="button" class="button button-primary button-rounded button-small">历史数据分析</button>
-    		<button type="button" class="button button-primary button-rounded button-small">调配分区</button>
-    		<button type="button" class="button button-primary button-rounded button-small">预测分析 </button>
-  		 </div>
-  
+		
 	</div>
-
+	</div>	
 </body>
 </html>

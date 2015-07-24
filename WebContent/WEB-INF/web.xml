@@ -17,6 +17,8 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  
+  <!-- 验证码 -->
   <servlet>
     <servlet-name>VerifyCodeServlet</servlet-name>
     <servlet-class>cn.itcast.vcode.servlet.VerifyCodeServlet</servlet-class>
@@ -25,6 +27,8 @@
     <servlet-name>VerifyCodeServlet</servlet-name>
     <url-pattern>/VerifyCodeServlet</url-pattern>
   </servlet-mapping>
+  
+  <!-- 用户信息验证 -->
   <servlet>
     <servlet-name>UserServlet</servlet-name>
     <servlet-class>cn.lcu.bicycle.user.web.servlet.UserServlet</servlet-class>
@@ -34,13 +38,24 @@
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
   
+  <!-- 用户信息提取 -->
   <servlet>
-    <servlet-name>BicyclePointServlet</servlet-name>
-    <servlet-class>cn.lcu.bicycle.BicyclePoint.servlet.BicyclePointServlet</servlet-class>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <servlet-class>cn.lcu.bicycle.Employee.servlet.EmployeeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>BicyclePointServlet</servlet-name>
-    <url-pattern>/BicyclePointServlet</url-pattern>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <url-pattern>/EmployeeServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 掉配车辆信息提取 -->
+  <servlet>
+    <servlet-name>DeployCarServlet</servlet-name>
+    <servlet-class>cn.lcu.bicycle.DeployCar.servlet.DeployCarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeployCarServlet</servlet-name>
+    <url-pattern>/DeployCarServlet</url-pattern>
   </servlet-mapping>
   
   

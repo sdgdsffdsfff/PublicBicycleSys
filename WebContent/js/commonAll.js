@@ -38,29 +38,121 @@ $(function() {
 	$("#show_hide_btn").click(function() {
 		switchSysBar();
 	});
-	
+	//一般分析按钮
 	$("#GeneralAnalysis").click(function(){
 		console.log("generalanalysis");
 		
-		require(["dojo/dom","extras/Widgets/GeneralAnalysis", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
-				function(dom,GeneralAnalysis,win,fx,style){
+		require(["dojo/dom","dojo/dom-construct","extras/Widgets/GeneralAnalysis", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+				function(dom,domConstruct,GeneralAnalysis,win,fx,style){
 			
-			if(dojo.byId("dijit__WidgetsInTemplateMixin_0")){
-				style.set("dijit__WidgetsInTemplateMixin_0", "z-index", "10");
+			if(dojo.byId("Widget_GeneralAnalysis")){
+				style.set("Widget_GeneralAnalysis", "z-index", "10");
 				fx.fadeIn({
-					node : dom.byId("dijit__WidgetsInTemplateMixin_0"),
+					node : dom.byId("Widget_GeneralAnalysis"),
 					duration : 500,
 					onEnd : function() {
 							}
 			}).play();
 				
 			}else{
+				var father = dom.byId('main');
+				domConstruct.create("div",{ id: "Widget_GeneralAnalysis"}, father, "first");
 				var generalAn = new GeneralAnalysis();
-				generalAn.placeAt(win.body());
+				var container = dom.byId('Widget_GeneralAnalysis');
+				//generalAn.placeAt(win.body());
+				generalAn.placeAt(container);
 				generalAn.startup();
 			}
 		});
 	});
+	
+	//工作人员管理
+	$("#PeoManage").click(function(){
+		console.log("PeoManage");
+		
+		require(["dojo/dom","dojo/dom-construct","extras/Widgets/PeoManage", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+				function(dom,domConstruct,PeoManage,win,fx,style){
+			
+			if(dojo.byId("Widget_PeoManage")){
+				style.set("Widget_PeoManage", "z-index", "10");
+				fx.fadeIn({
+					node : dom.byId("Widget_PeoManage"),
+					duration : 500,
+					onEnd : function() {
+							}
+			}).play();
+				
+			}else{
+				var father = dom.byId('main');
+				domConstruct.create("div",{ id: "Widget_PeoManage"}, father, "first");
+				var PeoManage = new PeoManage();
+				var container = dom.byId('Widget_PeoManage');
+				//generalAn.placeAt(win.body());
+				PeoManage.placeAt(container);
+				PeoManage.startup();
+			}
+		});
+	});
+	
+	//车辆信息管理  CarManage
+	
+	$("#CarManage").click(function(){
+		console.log("CarManage");
+		
+		require(["dojo/dom","dojo/dom-construct","extras/Widgets/CarManage", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+				function(dom,domConstruct,CarManage,win,fx,style){
+			
+			if(dojo.byId("Widget_CarManage")){
+				style.set("Widget_CarManage", "z-index", "10");
+				fx.fadeIn({
+					node : dom.byId("Widget_CarManage"),
+					duration : 500,
+					onEnd : function() {
+							}
+			}).play();
+				
+			}else{
+				var father = dom.byId('main');
+				domConstruct.create("div",{ id: "Widget_CarManage"}, father, "first");
+				var CarManage = new CarManage();
+				var container = dom.byId('Widget_CarManage');
+				//generalAn.placeAt(win.body());
+				CarManage.placeAt(container);
+				CarManage.startup();
+			}
+		});
+	});
+	
+	
+	//单车跟踪监控  GPSMonitor
+	
+	$("#GPSMonitor").click(function(){
+		console.log("GPSMonitor");
+		
+		require(["dojo/dom","dojo/dom-construct","extras/Widgets/GPSMonitor", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+				function(dom,domConstruct,GPSMonitor,win,fx,style){
+			
+			if(dojo.byId("Widget_GPSMonitor")){
+				style.set("Widget_GPSMonitor", "z-index", "10");
+				fx.fadeIn({
+					node : dom.byId("Widget_GPSMonitor"),
+					duration : 500,
+					onEnd : function() {
+							}
+			}).play();
+				
+			}else{
+				var father = dom.byId('main');
+				domConstruct.create("div",{ id: "Widget_GPSMonitor"}, father, "first");
+				var GPSMonitor = new GPSMonitor();
+				var container = dom.byId('Widget_GPSMonitor');
+				//generalAn.placeAt(win.body());
+				GPSMonitor.placeAt(container);
+				GPSMonitor.startup();
+			}
+		});
+	});
+	
 });
 
 /*
@@ -112,7 +204,7 @@ function switchSysBar(flag) {
 			width : '380px'
 		});
 
-		$('#main').css({
+		$('#map').css({
 			left : '380px'
 		});
 	} else {
@@ -124,7 +216,7 @@ function switchSysBar(flag) {
 			side.css({
 				width : '60px'
 			});
-			$('#main').css({
+			$('#map').css({
 				left : '60px',
 			});
 			//更换图片
@@ -135,7 +227,7 @@ function switchSysBar(flag) {
 			side.css({
 				width : '380px'
 			});
-			$('#main').css({
+			$('#map').css({
 				left : '380px'
 			});
 			$("#show_hide_btn").find('img').attr('src', 'images/common/nav_hide.png');

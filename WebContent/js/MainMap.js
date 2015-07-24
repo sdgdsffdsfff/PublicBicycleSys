@@ -106,7 +106,7 @@ require([
 				"http://cache1.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer");
 		
 		//用于站点显示的FeatureLayer是一个FutureService
-		var BicyclePoint = new FeatureLayer("http://localhost:6080/arcgis/rest/services/BicyclePoint/FeatureServer/1",
+		var BicyclePoint = new FeatureLayer("http://219.231.176.93:6080/arcgis/rest/services/PublicBicyclePoint/FeatureServer/1",
 				{
 					mode : FeatureLayer.MODE_SNAPSHOT,   //MODE_SNAPSHOT
 					//infoTemplate : infoTemplate,
@@ -115,14 +115,14 @@ require([
 				});
 		
 		//用于站点属性编辑的FeatureLayer是一个FutureService
-		var PointEdit = new FeatureLayer("http://localhost:6080/arcgis/rest/services/BicyclePoint/FeatureServer/1", {
+		var PointEdit = new FeatureLayer("http://219.231.176.93:6080/arcgis/rest/services/PublicBicyclePoint/FeatureServer/1", {
 	          mode: FeatureLayer.MODE_SELECTION,
 	          outFields: [ "NO", "NAME", "TIME", "TYPE", "ADDRESS","TEL", "STATE" ],
 	          id: "PointEdit"
 	        });
 		
 		//用于站点属性编辑的FeatureLayer是一个FutureService
-		var PointFw = new FeatureLayer("http://localhost:6080/arcgis/rest/services/BicyclePoint/FeatureServer/0", {
+		var PointFw = new FeatureLayer("http://219.231.176.93:6080/arcgis/rest/services/PublicBicyclePoint/FeatureServer/0", {
 	          mode: FeatureLayer.MODE_SNAPSHOT,
 	          outFields: ["*"],
 	          id: "PointFw"
@@ -130,12 +130,12 @@ require([
 		
 	    map.addLayers([MyTiledMapServiceLayer,BicyclePoint,PointEdit,PointFw]);
               
-	    //搜索栏
-		 var s = new Search({
-			 map: map,
-			 addLayersFromMap :true,
-		 }, "search");
-	     s.startup();
+//	    //搜索栏
+//		 var s = new Search({
+//			 map: map,
+//			 addLayersFromMap :true,
+//		 }, "search");
+//	     s.startup();
 	         
 		// Home按钮
 		var homeButton = new HomeButton({
@@ -429,7 +429,6 @@ function SetDataTable(){
   		"scrollY" : "727px",
   		"scrollCollapse" : true,
   		"paging" : false,
-
   		"dom" : '<"top"f<"add">>t<"bottom"i><"clear">',
 
   		"deferRender" : true,
@@ -461,7 +460,7 @@ function SetDataTable(){
 		 }
 	 }],
 
-	 "order" : [[1, 'asc']],
+	 "order" : [[2, 'asc']],
 
 	 "language" : {
 		 "sProcessing" : "处理中...",
@@ -471,6 +470,7 @@ function SetDataTable(){
 		 "sInfoEmpty" : "显示第 0 至 0 项结果，共 0 项",
 		 "sInfoFiltered" : "(由 _MAX_ 项结果过滤)",
 		 "sEmptyTable" : "表中数据为空",
+		 "search":"站点检索：",
 	 }
   	});
 		
