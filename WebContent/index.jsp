@@ -171,8 +171,12 @@
     {{/each}}
 </script>
 			</div>
-			<div id="nav_resource2" class="nav_resource"></div>
-			<div id="nav_resource3" class="nav_resource"></div>
+			<div id="nav_resource2" class="nav_resource">
+			</div>
+			<div id="nav_resource3" class="nav_resource">
+			</div>
+			<div id="nav_resource4" class="nav_resource">
+			</div>
 		</div>
 	</div>
 	<!-- 地图控件部分 	-->

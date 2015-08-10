@@ -167,7 +167,7 @@ define(["dojo/_base/declare", "dojo/dnd/move", "dijit/_WidgetBase",
 						
 
 							//dijit.byId("setTestBar").startAnimation();
-							geometryService = new GeometryService("http://localhost:6080/arcgis/rest/services/Utilities/Geometry/GeometryServer");
+							geometryService = new GeometryService(URL+"/Utilities/Geometry/GeometryServer");
 							// 开始分析
 							console.log("startAnalysis"+ dijit.byId('fruit').get('displayedValue'));
 							// 获取选项的值
@@ -200,7 +200,7 @@ define(["dojo/_base/declare", "dojo/dnd/move", "dijit/_WidgetBase",
 								//显示无刻度进度条
 								style.set("GeneralA_progress", "display", "block");
 								// 按照城市区划来选择图形 通过查询得到对应的geometry
-								var queryTask = new QueryTask("http://219.231.176.93:6080/arcgis/rest/services/PublicBicyclePoint/FeatureServer/2");
+								var queryTask = new QueryTask(URL+"/PublicBicyclePoint/FeatureServer/2");
 								var query = new Query();
 								query.returnGeometry = true;
 								query.outFields = [ "*" ];

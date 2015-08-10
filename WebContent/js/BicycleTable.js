@@ -1,19 +1,14 @@
 var namesearch;
 var template;
 var updateFeature;
-/**
- *判断是否编辑 
- */
-var	isEdit = false;
 
 $(document).ready(function() {
-
-	var tpl = $("#tpl").html();
 	//预编译模板
+	var tpl = $("#tpl").html();
 	template = Handlebars.compile(tpl);
 
    /**
-    *点击行点中心显示  （显示方法后期可封装）
+    *点击行点中心显示 
     */ 
 	$('#bicycleTable tbody').on('click', 'td.details-search', function() {
 		var tr = $(this).closest('tr');
@@ -22,7 +17,7 @@ $(document).ready(function() {
 		Show();
 	});
 	/**
-    *点击行点中心显示 （显示方法后期可封装）
+    *点击行点中心显示
     */ 
 	$('#bicycleTable tbody').on('click', 'td.sorting_1', function() {
 		var tr = $(this).closest('tr');
@@ -31,30 +26,21 @@ $(document).ready(function() {
 		Show();
 	});
 	/**
- 	*点击显示详情 
+ 	*点击比表格折叠按钮显示详情 
  	*/
 	$('#bicycleTable tbody').on('click', 'td.details-control', function() {
 		var tr = $(this).closest('tr');
 		console.log(tr);
 		var row = table.row(tr);
 		if (row.child.isShown()) {
-			// 折叠本行
 			row.child.hide();
 			tr.removeClass('shown');
 		} else {
-			// 展开本行
 			row.child(format(row.data())).show();
 			tr.addClass('shown');
 		}
 	});
-	
-	//暂时不用了，本想用于对表格删除修改等的精细操作  而不是整体刷新
-	// $('#bicycleTable tbody').on('click', 'td.details-edit', function() {
-		// var Edit_tr = $(this).closest('tr');
-		// var Edit_row = table.row(Edit_tr);
-		// console.log(namesearch+"霍一心");	
-	// });
-	
+		
 });
 
 //点击条目展开后显示的样式
@@ -88,12 +74,18 @@ function PointEditing(name, number, address, remarks, time, tel) {
         "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/domReady!"
 				], 
 	function(
- 		Graphic,FeatureLayer,AttributeInspector,
-        SimpleLineSymbol, SimpleFillSymbol,PictureMarkerSymbol, Color,esriConfig,
+ 		Graphic,
+ 		FeatureLayer,
+ 		AttributeInspector,
+        SimpleLineSymbol, 
+        SimpleFillSymbol,
+        PictureMarkerSymbol, 
+        Color,esriConfig,
         Query,dojoQuery,
-        parser, domConstruct, Button
+        parser, 
+        domConstruct, 
+        Button
 			) {
-				
 		
 		//设置AttributeInspector
 		var attInspector = new AttributeInspector({layerInfos : layerInfos}, domConstruct.create("div"));
@@ -105,7 +97,7 @@ function PointEditing(name, number, address, remarks, time, tel) {
           	 console.log("saveButton");
         	if(confirm("将进行修改操作，操作记录将会被详细记录。是否确认修改！")){
 	 			//先是在地图属性中修改
-	 			isEdit = true;
+	 			//isEdit = true;
          		updateFeature.getLayer().applyEdits(null, [updateFeature], null);
            		map.infoWindow.hide();
 				map.graphics.clear();
@@ -134,7 +126,7 @@ function PointEditing(name, number, address, remarks, time, tel) {
          	console.log("delete");
 			if(confirm("将进行删除操作，操作记录将会被详细记录。是否确认删除！")){
 	 		//先是在地图属性中删除
-	 			isEdit = true;
+	 			//isEdit = true;
          		evt.feature.getLayer().applyEdits(null, null, [evt.feature]);
           		map.infoWindow.hide();
           		map.graphics.clear();
@@ -150,39 +142,36 @@ function PointEditing(name, number, address, remarks, time, tel) {
 		map.graphics.clear();
 		var selectQuery = new Query();
 		selectQuery.where = "NO = '" + number + "'";	
-		var PointEdit = map.getLayer("PointEdit");
+		//var PointEdit = map.getLayer("PointEdit");  这个是以前的
+		var PointEdit = map.getLayer("BicyclePoint");
 		PointEdit.selectFeatures(selectQuery, FeatureLayer.SELECTION_NEW, function(features) {
               if (features.length > 0) {
-				//拿到当前查到的图形
+			
                 updateFeature = features[0];
-                //拿到屏幕坐标
                 var screenPoint = map.toScreen(updateFeature.geometry);
                 map.infoWindow.setTitle("属性编辑");
                 console.log("坐标"+screenPoint.x+screenPoint.y);
-                //显示含有attribute的IforWindows
                 map.infoWindow.show(screenPoint, map.getInfoWindowAnchor(screenPoint));
-                //设置标志
+
 				var picsms = new PictureMarkerSymbol("/PublicBicycleSys/images/animate.gif",21, 56);
 				map.graphics.add(new Graphic(updateFeature.geometry, picsms));
-                //设置显示点居中显示
-                map.centerAndZoom(updateFeature.geometry, 16);
+
+                map.centerAndZoom(updateFeature.geometry, 17);
               }
               else {
                 map.infoWindow.hide();
               }
-            });
-            
+            });        
 		map.infoWindow.setContent(attInspector.domNode);
 		map.infoWindow.resize(300,600);
 	});
 
-	//？？？为什么会删除过几次  就刷新几次图层？？
+	//？为什么会删除过几次  就刷新几次图层？？
 	//当编辑结束时刷新显示图层
-	var PointEdit = map.getLayer("PointEdit");
+	var PointEdit = map.getLayer("BicyclePoint");
 	PointEdit.on("edits-complete", function() {
-		var BicyclePoint = map.getLayer("BicyclePoint");
-	    	BicyclePoint.refresh();
-        });
+
+   	});
 }
 
 /**
@@ -219,7 +208,7 @@ function Show() {
 			map.infoWindow.setContent(tamplet);
 			map.infoWindow.show(screenPoint, map.getInfoWindowAnchor(screenPoint));
 			//移动到视野中心
-			map.centerAndZoom(features[0].geometry, 16);
+			map.centerAndZoom(features[0].geometry, 17);
 		});
 		
 	});

@@ -7,6 +7,9 @@ $(function() {
 	var loginname = getCookie("loginname");
 	document.getElementById("username").innerHTML = loginname;
 	
+
+	
+	
 	$('#TabPage2 li').click(function() {
 		//获取当前所点击的li的id；
 		var index = $(this).index();
@@ -128,7 +131,7 @@ $(function() {
 	
 	$("#GPSMonitor").click(function(){
 		console.log("GPSMonitor");
-		
+
 		require(["dojo/dom","dojo/dom-construct","extras/Widgets/GPSMonitor", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
 				function(dom,domConstruct,GPSMonitor,win,fx,style){
 			
@@ -154,6 +157,35 @@ $(function() {
 	});
 	
 });
+
+//页面初始化后就打开的GPS监控仪表盘
+function DployGaugeOpen(){
+	  console.log("DployGauge");
+	 
+	  require(["dojo/dom","dojo/dom-construct","extras/Widgets/DeployGauge", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+	    function(dom,domConstruct,DeployGauge,win,fx,style){
+		  
+		  if(dojo.byId("Widget_DeployGauge")){
+				style.set("Widget_DeployGauge", "z-index", "10");
+				fx.fadeIn({
+					node : dom.byId("Widget_DeployGauge"),
+					duration : 500,
+					onEnd : function() {
+							}
+			}).play();
+				
+			}else{
+				var father = dom.byId('nav_resource2');
+				domConstruct.create("div",{ id: "Widget_DeployGauge"}, father, "first");
+				var DeployGauge = new DeployGauge();
+				var container = dom.byId('Widget_DeployGauge');
+				DeployGauge.placeAt(container);
+				DeployGauge.startup();
+			}
+	   
+	  });
+};
+
 
 /*
  * 获取cookie中的用户名
@@ -181,6 +213,25 @@ function switchBar(index) {
 	$(".WorkingTab").css('display','none'); 
 	var id = "WorkingTab"+(index+1);
 	$("#"+id).css('display','block'); 
+	
+	if(index == 0){
+		 console.log("模块一初始化");
+	}else if(index == 1){
+		 console.log("DployGauge模块初始化");
+		//加载调配车辆监控模块
+		try {
+			/*******************************************************************/
+			DployGaugeOpen();
+			/*******************************************************************/
+		} catch (e) {
+			// TODO: handle exception
+		}
+	}else if(index == 2){
+		 console.log("模块三初始化");
+	}else if(index == 3){
+		 console.log("模块四初始化");
+	}
+	
 }
 
 
