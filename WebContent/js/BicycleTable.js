@@ -92,17 +92,70 @@ function PointEditing(name, number, address, remarks, time, tel) {
    		var saveButton = new Button({ label: "保存", "class": "saveButton"},domConstruct.create("div"));
 		domConstruct.place(saveButton.domNode, attInspector.deleteBtn.domNode, "after");
 
+
+		/**
+		 *通过获取被点击表格信息的编号，查询图层得到对应的  
+		 */
+		map.graphics.clear();
+		var selectQuery = new Query();
+		selectQuery.where = "NO = '" + number + "'";	
+		var PointEdit = map.getLayer("BicyclePoint");
+		PointEdit.selectFeatures(selectQuery, FeatureLayer.SELECTION_NEW, function(features) {
+              if (features.length > 0) {
+			
+                updateFeature = features[0];
+                var screenPoint = map.toScreen(updateFeature.geometry);
+                map.infoWindow.setTitle("属性编辑");
+                console.log("坐标"+screenPoint.x+screenPoint.y);
+                map.infoWindow.show(screenPoint, map.getInfoWindowAnchor(screenPoint));
+
+				var picsms = new PictureMarkerSymbol("/PublicBicycleSys/images/animate.gif",21, 56);
+				map.graphics.add(new Graphic(updateFeature.geometry, picsms));
+
+                map.centerAndZoom(updateFeature.geometry, 17);
+              }
+              else {
+                map.infoWindow.hide();
+              }
+            });     
+
+			map.infoWindow.setContent(attInspector.domNode);
+			map.infoWindow.resize(300,600);
+
+
+
 		//点击保存
         saveButton.on("click", function() {
           	 console.log("saveButton");
         	if(confirm("将进行修改操作，操作记录将会被详细记录。是否确认修改！")){
-	 			//先是在地图属性中修改
-	 			//isEdit = true;
+
          		updateFeature.getLayer().applyEdits(null, [updateFeature], null);
            		map.infoWindow.hide();
 				map.graphics.clear();
-
-                //alert("点数据已经修改");
+         			
+         		var StationNO = updateFeature.attributes.NO;
+                var StationName = updateFeature.attributes.NAME; 
+                var loginName = getCookie("loginname");
+                var date = new Date();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var dateString = date.toLocaleDateString();
+                var timeAndDate = dateString+"/"+hours+":"+minutes;
+                var alertString = "对编号为："+StationNO+"的"+StationName+"站点进行了修改"
+                alert("用户"+loginName+"在"+timeAndDate+" "+alertString);
+              	// 将修改后的信息存到数据库
+                var deferredResult = dojo.xhrPost({  
+          	    url: "/PublicBicycleSys/ChangeStationInfosServlet",  
+          	    postData: {
+      				method : "ajaxChangeStationInfos",
+      				Loginname:loginName,
+      				ChangeTime:timeAndDate,
+      				Des:alertString
+      				},
+      				timeout: 3000, 
+      				handleAs: "json"
+                }); 
+ 
 	 		}else{
 	 	 		//alert("操作已放弃");
 	 		}
@@ -125,53 +178,48 @@ function PointEditing(name, number, address, remarks, time, tel) {
         attInspector.on("delete", function(evt) {
          	console.log("delete");
 			if(confirm("将进行删除操作，操作记录将会被详细记录。是否确认删除！")){
-	 		//先是在地图属性中删除
-	 			//isEdit = true;
+
          		evt.feature.getLayer().applyEdits(null, null, [evt.feature]);
           		map.infoWindow.hide();
           		map.graphics.clear();
+         		            
+                var StationNO = updateFeature.attributes.NO;
+                var StationName = updateFeature.attributes.NAME; 
+                var loginName = getCookie("loginname");
+                var date = new Date();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var dateString = date.toLocaleDateString();
+                var timeAndDate = dateString+"/"+hours+":"+minutes;
+                var alertString = "删除了编号为："+StationNO+"的"+StationName+"站点"
+                alert("用户"+loginName+"在"+timeAndDate+" "+alertString);
+                
+              	//将修改后的信息存到数据库
+                var deferredResult = dojo.xhrPost({  
+          	    url: "/PublicBicycleSys/ChangeStationInfosServlet",  
+          	    postData: {
+      				method : "ajaxChangeStationInfos",
+      				Loginname:loginName,
+      				ChangeTime:timeAndDate,
+      				Des:alertString
+      				},
+      				timeout: 3000,
+      				handleAs: "json"
+                }); 
 
 	 		}else{
 	 	 	//alert("操作已放弃");
 	 		}        
      	});
          
-		/**
-		 *通过获取被点击表格信息的编号，查询图层得到对应的  
-		 */
-		map.graphics.clear();
-		var selectQuery = new Query();
-		selectQuery.where = "NO = '" + number + "'";	
-		//var PointEdit = map.getLayer("PointEdit");  这个是以前的
-		var PointEdit = map.getLayer("BicyclePoint");
-		PointEdit.selectFeatures(selectQuery, FeatureLayer.SELECTION_NEW, function(features) {
-              if (features.length > 0) {
-			
-                updateFeature = features[0];
-                var screenPoint = map.toScreen(updateFeature.geometry);
-                map.infoWindow.setTitle("属性编辑");
-                console.log("坐标"+screenPoint.x+screenPoint.y);
-                map.infoWindow.show(screenPoint, map.getInfoWindowAnchor(screenPoint));
-
-				var picsms = new PictureMarkerSymbol("/PublicBicycleSys/images/animate.gif",21, 56);
-				map.graphics.add(new Graphic(updateFeature.geometry, picsms));
-
-                map.centerAndZoom(updateFeature.geometry, 17);
-              }
-              else {
-                map.infoWindow.hide();
-              }
-            });        
-		map.infoWindow.setContent(attInspector.domNode);
-		map.infoWindow.resize(300,600);
 	});
 
 	//？为什么会删除过几次  就刷新几次图层？？
 	//当编辑结束时刷新显示图层
-	var PointEdit = map.getLayer("BicyclePoint");
-	PointEdit.on("edits-complete", function() {
-
-   	});
+	// var PointEdit = map.getLayer("BicyclePoint");
+	// PointEdit.on("edits-complete", function() {
+// 
+   	// });
 }
 
 /**

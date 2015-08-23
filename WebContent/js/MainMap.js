@@ -17,7 +17,10 @@ var table = null;
  * 点击地图时功能是否为增加点
  */
 var isAdd = false;
-
+/**
+ *分析选区的结果
+ */
+var postFea;
 
 	require([	
 		"dojo/parser",
@@ -146,7 +149,9 @@ var isAdd = false;
 		          
 				// 瓦片杭州地图图层
 				var MyTiledMapServiceLayer = new ArcGISTiledMapServiceLayer(
-				"http://cache1.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer");
+				"http://cache1.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer",{id: "MyTiledMapServiceLayer"});
+				//http://cache1.arcgisonline.cn/ArcGIS/rest/services/ChinaCities_Community_BaseMap_CHN/HangZhou_Community_BaseMap_CHN/MapServer
+				//http://cache1.arcgisonline.cn/ArcGIS/rest/services/ChinaOnlineCommunity/MapServer
 				//用于站点显示的FeatureLayer是一个FutureService
 				var BicyclePoint = new FeatureLayer(URL+"/PublicBicyclePoint/FeatureServer/1",{
 						mode : FeatureLayer.MODE_SNAPSHOT,
@@ -160,7 +165,7 @@ var isAdd = false;
 						id: "PointFw"
 						});
 				map.addLayers([MyTiledMapServiceLayer,BicyclePoint,PointFw]);
-	    
+	
 				var homeButton = new HomeButton({
 						theme : "HomeButton",
 						map : map,
@@ -186,15 +191,15 @@ var isAdd = false;
 						});
 				overviewMapDijit.startup();
 
-				measurement = new Measurement({
-						map : map
-						}, dojo.byId("measurementDiv"));
-				measurement.startup();
+//				measurement = new Measurement({
+//						map : map
+//						}, dojo.byId("measurementDiv"));
+//				measurement.startup();
 		
 		
 				//编辑用的attribute的layerinfos设置
 				layerInfos = [{
-						'featureLayer' : BicyclePoint,//以前是pointedit
+						'featureLayer' : BicyclePoint,
 						'showDeleteButton':true,
 						'showAttachments' : false,
 						'isEditable' : true,
@@ -254,13 +259,13 @@ var isAdd = false;
 							  	STATE:"运行状态"
 						     };
 							 //添加点
-							 var picsms = new PictureMarkerSymbol("/PublicBicycleSys/images/animate.gif",21, 56);
-					         var PointGraphic = new Graphic(evt.mapPoint, picsms, PointAttributes);
-					         BicyclePoint.applyEdits([PointGraphic],null,null);
-					          
-					         PointEditing("新建点", number, "无", "无", "无", "无");				            
-					
-							 isAdd = false;
+						    var picsms = new PictureMarkerSymbol("/PublicBicycleSys/images/animate.gif",21, 56);
+				            var PointGraphic = new Graphic(evt.mapPoint, picsms, PointAttributes);
+				            BicyclePoint.applyEdits([PointGraphic],null,null);
+				          
+				            PointEditing("新建点", number, "无", "无", "无", "无");				            
+				
+						    isAdd = false;
 					}
 							
 							

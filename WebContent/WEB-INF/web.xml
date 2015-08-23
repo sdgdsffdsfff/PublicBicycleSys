@@ -17,8 +17,6 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
-  <!-- 验证码 -->
   <servlet>
     <servlet-name>VerifyCodeServlet</servlet-name>
     <servlet-class>cn.itcast.vcode.servlet.VerifyCodeServlet</servlet-class>
@@ -27,8 +25,6 @@
     <servlet-name>VerifyCodeServlet</servlet-name>
     <url-pattern>/VerifyCodeServlet</url-pattern>
   </servlet-mapping>
-  
-  <!-- 用户信息验证 -->
   <servlet>
     <servlet-name>UserServlet</servlet-name>
     <servlet-class>cn.lcu.bicycle.user.web.servlet.UserServlet</servlet-class>
@@ -37,8 +33,6 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
-  
-  <!-- 用户信息提取 -->
   <servlet>
     <servlet-name>EmployeeServlet</servlet-name>
     <servlet-class>cn.lcu.bicycle.Employee.servlet.EmployeeServlet</servlet-class>
@@ -47,8 +41,6 @@
     <servlet-name>EmployeeServlet</servlet-name>
     <url-pattern>/EmployeeServlet</url-pattern>
   </servlet-mapping>
-  
-  <!-- 掉配车辆信息提取 -->
   <servlet>
     <servlet-name>DeployCarServlet</servlet-name>
     <servlet-class>cn.lcu.bicycle.DeployCar.servlet.DeployCarServlet</servlet-class>
@@ -57,6 +49,29 @@
     <servlet-name>DeployCarServlet</servlet-name>
     <url-pattern>/DeployCarServlet</url-pattern>
   </servlet-mapping>
-  
-  
+  <servlet>
+    <servlet-name>CarControlCenterServlet</servlet-name>
+    <servlet-class>cn.lcu.bicycle.CarControlCenter.servlet.CarControlCenterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarControlCenterServlet</servlet-name>
+    <url-pattern>/CarControlCenterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ChangeStationInfosServlet</servlet-name>
+    <servlet-class>cn.lcu.bicycle.ChangeStation.servlet.ChangeStationInfosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeStationInfosServlet</servlet-name>
+    <url-pattern>/ChangeStationInfosServlet</url-pattern>
+  </servlet-mapping>
+  <!-- MongoDB获取车辆历史路径 -->
+  <servlet>
+    <servlet-name>vehicleHistoryServlet</servlet-name>
+    <servlet-class>cn.lcu.bicycle.vehicleHistory.servlet.vehicleHistoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>vehicleHistoryServlet</servlet-name>
+    <url-pattern>/vehicleHistoryServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -14,10 +14,13 @@
 <link href="css/PlugInCSS/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- font-awesome图标字体库 -->
 <link rel="stylesheet" href="css/PlugInCSS/font-awesome.css">
+<link rel="stylesheet" href="css/PlugInCSS/dnd.css">
 
 <!-- Arcgis API CSS-->
 <!-- <link rel="stylesheet" href="http://localhost:8081/arcgis_js_api/library/3.13/3.13/dijit/themes/tundra/tundra.css"> -->
 <!-- <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/claro/claro.css"> -->
+<link rel="stylesheet" href="//downloads.dojotoolkit.org/release-1.10.1/dojo-release-1.10.1/dojo/resources/dnd.css">
+
 
 <!-- Arcgis API CSS 扁平化样式-->
 <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
@@ -84,11 +87,11 @@
 		 		<div id = "WorkingTab1" class="button-group WorkingTab">
     				<button type="button" id= "PeoManage" class="button button-flat button-rounded button-small">调配人员</button>
     				<button type="button" id= "CarManage" class="button  button-rounded button-small">调配车辆 </button>
-    				<button type="button" class="button  button-rounded button-small">车场信息</button>
+    				<button type="button" id= "CarControlCenter" class="button  button-rounded button-small">车场信息</button>
   		 		</div>
   		 		<div id = "WorkingTab2" class="button-group WorkingTab">
     				<button type="button" id= "GPSMonitors" class="button  button-rounded button-small">车辆信息监控</button>
-    				<button type="button" id= "GPSMonitor" class="button  button-rounded button-small">单车跟踪监控</button>
+    				<button type="button" id= "GPSMonitor" class="button  button-rounded button-small">单车监控历史</button>
   		 		</div>
   		 		<div id = "WorkingTab3" class="button-group WorkingTab">
     				<button type="button" class="button  button-rounded button-small">调配人员</button>
@@ -171,11 +174,14 @@
     {{/each}}
 </script>
 			</div>
-			<div id="nav_resource2" class="nav_resource">
+			<div id="nav_resource2" class="nav_resource"  style="width: 100%;height: 100%; text-align: center; ">
+			 <i id = "nav_resource2jdt" class="fa fa-spinner fa-pulse fa-3x" style="margin-top: 300px; z-index: 1;"></i>
 			</div>
-			<div id="nav_resource3" class="nav_resource">
+			<div id="nav_resource3" class="nav_resource"  style="width: 100%;height: 100%; text-align: center; ">
+			 <i id = "nav_resource3jdt" class="fa fa-spinner fa-pulse fa-3x" style="margin-top: 300px; z-index: 1;"></i>
 			</div>
-			<div id="nav_resource4" class="nav_resource">
+			<div id="nav_resource4" class="nav_resource"  style="width: 100%;height: 100%; text-align: center; ">
+			 <i id = "nav_resource4jdt" class="fa fa-spinner fa-pulse fa-3x" style="margin-top: 300px; z-index: 1;"></i>
 			</div>
 		</div>
 	</div>
@@ -186,10 +192,6 @@
 		<div id="HomeButton"></div>
 		
 		<div id="BasemapToggle"></div>
-		
-		<div id="titlePane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'地图测量', close:'true'">
-		<div id="measurementDiv"></div>
-		</div>
 		
 	</div>
 	</div>	

@@ -3,11 +3,23 @@ function rightMain(url){
 	$('#rightMain').attr('src', url);
 }
 
+function shake(ele,cls,times){
+	var i = 0,t= false ,o =ele.attr("class")+" ",c ="",times=times||2;
+	if(t) return;
+	t= setInterval(function(){
+		i++;
+		c = i%2 ? o+cls : o;
+		ele.attr("class",c);
+		if(i==2*times){
+			clearInterval(t);
+			ele.removeClass(cls);
+			}
+		},200);
+};
+
 $(function() {
 	var loginname = getCookie("loginname");
 	document.getElementById("username").innerHTML = loginname;
-	
-
 	
 	
 	$('#TabPage2 li').click(function() {
@@ -49,7 +61,7 @@ $(function() {
 				function(dom,domConstruct,GeneralAnalysis,win,fx,style){
 			
 			if(dojo.byId("Widget_GeneralAnalysis")){
-				style.set("Widget_GeneralAnalysis", "z-index", "10");
+				style.set("Widget_GeneralAnalysis", "z-index", "200");
 				fx.fadeIn({
 					node : dom.byId("Widget_GeneralAnalysis"),
 					duration : 500,
@@ -77,7 +89,7 @@ $(function() {
 				function(dom,domConstruct,PeoManage,win,fx,style){
 			
 			if(dojo.byId("Widget_PeoManage")){
-				style.set("Widget_PeoManage", "z-index", "10");
+				style.set("Widget_PeoManage", "z-index", "200");
 				fx.fadeIn({
 					node : dom.byId("Widget_PeoManage"),
 					duration : 500,
@@ -106,7 +118,7 @@ $(function() {
 				function(dom,domConstruct,CarManage,win,fx,style){
 			
 			if(dojo.byId("Widget_CarManage")){
-				style.set("Widget_CarManage", "z-index", "10");
+				style.set("Widget_CarManage", "z-index", "200");
 				fx.fadeIn({
 					node : dom.byId("Widget_CarManage"),
 					duration : 500,
@@ -126,6 +138,37 @@ $(function() {
 		});
 	});
 	
+	//车辆调配中心管理
+	
+	 //车辆调度中心
+	 $("#CarControlCenter").click(function(){
+		  console.log("CarControlCenter");
+		 
+		  require(["dojo/dom","dojo/dom-construct","extras/Widgets/CarControlCenter", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+		    function(dom,domConstruct,CarControlCenter,win,fx,style){
+		   
+		   if(dojo.byId("Widget_CarControlCenter")){
+		    style.set("Widget_CarControlCenter", "z-index", "200");
+		    fx.fadeIn({
+		     node : dom.byId("Widget_CarControlCenter"),
+		     duration : 500,
+		     onEnd : function() {
+		       }
+		   }).play();
+		   
+		   }else{
+		    var father = dom.byId('main');
+		    domConstruct.create("div",{ id: "Widget_CarControlCenter"}, father, "first");
+		    var CarControlCenter = new CarControlCenter();
+		    var container = dom.byId('Widget_CarControlCenter');
+		    //generalAn.placeAt(win.body());
+		    CarControlCenter.placeAt(container);
+		    CarControlCenter.startup();
+		   }
+		  });
+		});
+	
+	
 	
 	//单车跟踪监控  GPSMonitor
 	
@@ -136,7 +179,7 @@ $(function() {
 				function(dom,domConstruct,GPSMonitor,win,fx,style){
 			
 			if(dojo.byId("Widget_GPSMonitor")){
-				style.set("Widget_GPSMonitor", "z-index", "10");
+				style.set("Widget_GPSMonitor", "z-index", "200");
 				fx.fadeIn({
 					node : dom.byId("Widget_GPSMonitor"),
 					duration : 500,
@@ -154,6 +197,37 @@ $(function() {
 				GPSMonitor.startup();
 			}
 		});
+	});
+	
+	
+
+	$("#GPSMonitors").click(function(){
+		  console.log("DeployCarInfoPanel");
+		  
+			require(["dojo/dom","dojo/dom-construct","extras/Widgets/DeployCarInfoPanel", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+					function(dom,domConstruct,DployCarInfoPanel,win,fx,style){
+				
+				if(dojo.byId("Widget_DeployCarInfoPanel")){
+					style.set("Widget_DeployCarInfoPanel", "z-index", "200");
+					fx.fadeIn({
+						node : dom.byId("Widget_DeployCarInfoPanel"),
+						duration : 500,
+						onEnd : function() {
+								}
+				}).play();
+					
+				}else{
+					var father = dom.byId('main');
+					domConstruct.create("div",{ id: "Widget_DeployCarInfoPanel"}, father, "first");
+					var DployCarInfoPanel = new DployCarInfoPanel();
+					var container = dom.byId('Widget_DeployCarInfoPanel');
+					//generalAn.placeAt(win.body());
+					DployCarInfoPanel.placeAt(container);
+					DployCarInfoPanel.startup();
+				}
+			});
+			
+		 
 	});
 	
 });
@@ -181,6 +255,34 @@ function DployGaugeOpen(){
 				var container = dom.byId('Widget_DeployGauge');
 				DeployGauge.placeAt(container);
 				DeployGauge.startup();
+			}
+	   
+	  });
+};
+
+//页面初始化后就打开的分析选区域面板
+function AnalysisArea(){
+	  console.log("AnalysisArea");
+	 
+	  require(["dojo/dom","dojo/dom-construct","extras/Widgets/AnalysisArea", "dojo/_base/window","dojo/_base/fx","dojo/dom-style","dojo/domReady!"],
+	    function(dom,domConstruct,AnalysisArea,win,fx,style){
+		  
+		  if(dojo.byId("Widget_AnalysisArea")){
+				style.set("Widget_AnalysisArea", "z-index", "10");
+				fx.fadeIn({
+					node : dom.byId("Widget_AnalysisArea"),
+					duration : 500,
+					onEnd : function() {
+							}
+			}).play();
+				
+			}else{
+				var father = dom.byId('nav_resource4');
+				domConstruct.create("div",{ id: "Widget_AnalysisArea"}, father, "first");
+				var AnalysisArea = new AnalysisArea();
+				var container = dom.byId('Widget_AnalysisArea');
+				AnalysisArea.placeAt(container);
+				AnalysisArea.startup();
 			}
 	   
 	  });
@@ -229,7 +331,15 @@ function switchBar(index) {
 	}else if(index == 2){
 		 console.log("模块三初始化");
 	}else if(index == 3){
-		 console.log("模块四初始化");
+		 console.log("AnalysisArea模块初始化");
+		 //加载分析选取模块
+		try {
+			/*******************************************************************/
+			AnalysisArea();
+			/*******************************************************************/
+		} catch (e) {
+			// TODO: handle exception
+		}
 	}
 	
 }

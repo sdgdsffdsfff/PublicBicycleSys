@@ -1,109 +1,193 @@
-	/*小部件：站点管理 调配人员管理*/
-	#Widget_PeoManage{
+/*小部件：站点管理 调配人员管理*/
+#Widget_PeoManage {
 	position: absolute;
 	left: 0px;
 	z-index: 200;
 	width: 800px;
 	background-color: #EEEEEE;
-	}	
-	#PMTitle{
-		height: 24px;
-		z-index: 50;
-	}
-	#PMTitleName{
-			background:  #1B9AF7;
-			color: #FFFFFF;
-			float:left;
-			width: 776px;
-			height: 24px;
-			text-align:left;
-	}
-	#PMTitleClose{
-			float:right;
-			width: 24px;
-			height: 24px;
-	}
-	#TitleWeight { 
-		line-height:24px; 
-		font-size:12px;
-		font-weight:bold;
-		padding: 0px 0px 0px 10px;
-		}
-	#PMcontent{
-		width: 800px;
-		height: auto;
-	}
-	#EmployeeTableContent{
-		padding: 5px 10px 5px 10px;
-		height: auto;
-	}
-	#Employee_filter{
-		padding: 5px 5px 5px 5px;
-	}
-	.Employee_bottom{
-		
-		padding: 5px 5px 5px 5px;
-		height: auto;
-	}
-	#Employee {
-		text-align:center
-	}
-	
+}
+#PMTitle {
+	height: 24px;
+	z-index: 50;
+}
+#PMTitleName {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	float: left;
+	width: 776px;
+	height: 24px;
+	text-align: left;
+}
+#PMTitleClose {
+	float: right;
+	width: 24px;
+	height: 24px;
+}
+#TitleWeight {
+	line-height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0px 0px 0px 10px;
+}
+#PMcontent {
+	width: 800px;
+	height: auto;
+}
+#EmployeeTableContent {
+	padding: 5px 10px 5px 10px;
+	height: auto;
+}
+#Employee_filter {
+	padding: 5px 5px 5px 5px;
+}
+.Employee_bottom {
+
+	padding: 5px 5px 5px 5px;
+	height: auto;
+}
+#Employee {
+	text-align: center
+}
+
 /*小部件：站点管理 调配车辆管理*/
-#Widget_CarManage{
+#Widget_CarManage {
 	position: absolute;
 	top: 90px;
 	left: 450px;
 	z-index: 200;
 	width: 1000px;
 	background-color: #EEEEEE;
-	}
-	#CarTitle{
-		height: 24px;
-		z-index: 50;
-	}
-	#CarTitleName{
-			background:  #1B9AF7;
-			color: #FFFFFF;
-			float:left;
-			width: 976px;
-			height: 24px;
-			text-align:left;
-	}
-	#CarTitleClose{
-			float:right;
-			width: 24px;
-			height: 24px;
-	}
-	#TitleWeight { 
-		line-height:24px; 
-		font-size:12px;
-		font-weight:bold;
-		padding: 0px 0px 0px 10px;
-		}
-	#CarMonitorContent{
-		width: 800px;
-		height: 280px;
-	}
-	#CarManageTableContent{
-		padding: 0px 10px 0px 10px;
-	}
-	#CarManageTable_filter{
-		padding: 10px;
-	}
-	.CarManageTable_bottom{
-		
-		padding: 10px;
-		height: auto;
-	}
-	#CarManageTable{
-		text-align:center
-	}
-	
+}
+#CarTitle {
+	height: 24px;
+	z-index: 50;
+}
+#CarTitleName {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	float: left;
+	width: 976px;
+	height: 24px;
+	text-align: left;
+}
+#CarTitleClose {
+	float: right;
+	width: 24px;
+	height: 24px;
+}
+#TitleWeight {
+	line-height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0px 0px 0px 10px;
+}
+#CarMonitorContent {
+	width: 800px;
+	height: 280px;
+}
+#CarManageTableContent {
+	padding: 0px 10px 0px 10px;
+}
+#CarManageTable_filter {
+	padding: 10px;
+}
+.CarManageTable_bottom {
 
+	padding: 10px;
+	height: auto;
+}
+#CarManageTable {
+	text-align: center
+}
 
-	/*小部件：数据分析 站点一般分析*/
-	#Widget_GeneralAnalysis{
+/*小部件：站点管理 调配中心管理*/
+#Widget_CarControlCenter {
+	position: absolute;
+	left: 0px;
+	z-index: 200;
+	width: 800px;
+	background-color: #EEEEEE;
+}
+
+#CCCTitle {
+	height: 24px;
+	z-index: 50;
+}
+
+#CCCTitleName {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	float: left;
+	width: 776px;
+	height: 24px;
+	text-align: left;
+}
+
+#CCCTitleClose {
+	float: right;
+	width: 24px;
+	height: 24px;
+}
+#TitleWeight {
+	line-height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0px 0px 0px 10px;
+}
+
+#CarControlCenterContent {
+	width: 800px;
+	text-align: center;
+	height: auto;
+}
+
+#ControlCenterTableContent {
+	padding: 5px 10px 5px 10px;
+	height: auto;
+}
+
+#Control_filter {
+	padding: 5px 5px 5px 5px;
+}
+
+.ControlCenter_bottom {
+	padding: 5px 5px 5px 5px;
+	height: auto;
+}
+
+#Control {
+	text-align: center;
+}
+#CarInforTit {
+	width: auto;
+	text-align: center;
+}
+#InforShow {
+	position: absolute left :0px;
+	width: auto;
+	text-align: center;
+	padding: 30px 0px 0px 0px;
+}
+#InforEmp {
+	position: absolute left :0px;
+	display: none width : auto;
+	text-align: center;
+	padding: 30px 0px 0px 0px;
+}
+#InforShowFrom {
+
+	width: auto;
+}
+#InforEmpFrom {
+	width: auto;
+}
+
+#ControlCenter {
+	width: auto
+}
+
+/*小部件：数据分析 站点一般分析*/
+#Widget_GeneralAnalysis {
 	position: absolute;
 	top: 90px;
 	left: 450px;
@@ -111,111 +195,196 @@
 	/*width: 350px;*/
 	width: 430px;
 	background-color: #EEEEEE;
-	}
-	#GATitle{
-		height: 24px;
-		z-index: 50;
-	}
-	#buttonN{
-			background:  #1B9AF7;
-			color: #FFFFFF;
-			float:left;
-			width: 406px;
-			height: 24px;
-			text-align:left;
-			
-	}
-	#buttonC{
-			float:right;
-			width: 24px;
-			height: 24px;
-	}
-	#TitleWeight { 
-		line-height:24px; 
-		font-size:12px;
-		font-weight:bold;
-		padding: 0px 0px 0px 10px;
-		}
+}
+#GATitle {
+	height: 24px;
+	z-index: 50;
+}
+#buttonN {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	float: left;
+	width: 406px;
+	height: 24px;
+	text-align: left;
+}
+#buttonC {
+	float: right;
+	width: 24px;
+	height: 24px;
+}
+#TitleWeight {
+	line-height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0px 0px 0px 10px;
+}
 
 /*小部件：站点监控 单车跟踪监控*/
 
-
-#Widget_GPSMonitor{
+#Widget_GPSMonitor {
 	position: absolute;
 	top: 90px;
 	left: 450px;
 	z-index: 200;
 	width: 630px;
 	background-color: #EEEEEE;
-	}
-	#GPSTitle{
-		height: 24px;
-		z-index: 50;
-	}
-	#GPSTitleName{
-			background:  #1B9AF7;
-			color: #FFFFFF;
-			float:left;
-			width: 606px;
-			height: 24px;
-			text-align:left;
-	}
-	#GPSTitleClose{
-			float:right;
-			width: 24px;
-			height: 24px;
-	}
-	#TitleWeight { 
-		line-height:24px; 
-		font-size:12px;
-		font-weight:bold;
-		padding: 0px 0px 0px 10px;
-		}
-	#GPSMonitorContent{
-		width: 630px;
-		height: auto;
-	}
-	#CarMassage{
-		height: 25px;
-	}
-	#Stopbutton{
-		position: absolute;
-		right: 5px;
-		bottom: 5px;
-		z-index: 250;
-	}
-	
+}
+#GPSTitle {
+	height: 24px;
+	z-index: 50;
+}
+#GPSTitleName {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	float: left;
+	width: 606px;
+	height: 24px;
+	text-align: left;
+}
+#GPSTitleClose {
+	float: right;
+	width: 24px;
+	height: 24px;
+}
+#TitleWeight {
+	line-height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0px 0px 0px 10px;
+}
+#GPSMonitorContent {
+	width: 630px;
+	height: auto;
+}
+#CarMassage {
+	height: 25px;
+}
+#Stopbutton {
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	z-index: 250;
+}
+
 /*车辆监控仪表盘*/
 
-#Widget_DeployGauge{
+#Widget_DeployGauge {
 	position: absolute;
 	top: 60px;
 	left: 10px;
 	background-color: #e9e9e9;
-	}
-	#DGTitle{
-		height: 24px;
-	}
-	#DGTitleName{
-			background:  #1B9AF7;
-			color: #FFFFFF;
-			float:left;
-			width: 300px;
-			height: 24px;
-			text-align:left;
-	}
+}
+#DGTitle {
+	height: 24px;
+}
+#DGTitleName {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	float: left;
+	width: 300px;
+	height: 24px;
+	text-align: left;
+}
 
-	#TitleWeight { 
-		line-height:24px; 
-		font-size:12px;
-		font-weight:bold;
-		padding: 0px 0px 0px 10px;
-		}
-		
-
-
-	
+#TitleWeight {
+	line-height: 24px;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0px 0px 0px 10px;
+}
 
 
-		
-		
+
+.container {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    cursor: default;
+    padding: 1em;
+}
+.container{
+    height: 565px;
+    overflow:auto;
+}
+#carList{
+	width: 100%;
+	height: 100%;
+
+}
+#carMonitoring{
+	width: 100%;
+	height: 100%;
+}
+
+.carListtabletitle {
+	text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.286em;
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
+}
+
+/*监控信息面板*/
+#Widget_DeployCarInfoPanel {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	z-index: 200;
+	width: 1540px;
+	background-color: #EEEEEE;
+}
+#IPTitle {
+	height: 24px;
+	z-index: 50;
+}
+#IPTitleName {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	float: left;
+	width: 1516px;
+	height: 24px;
+	text-align: left;
+}
+#IPTitleClose {
+	float: right;
+	width: 24px;
+	height: 24px;
+}
+#DeployCarInfoPanelContent{
+	height: 200px;
+}
+#carMonitorChart{
+	width: 100%;
+	height: 95%;
+}
+#carMonitorCarSpeedInfo{
+	width: 100%;
+	height: 95%;
+}
+
+
+
+
+/*分析选区小部件*/
+
+#Widget_AnalysisArea {
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	background-color: #e9e9e9;
+}
+#AATitle {
+	height: 24px;
+}
+#AATitleName {
+	background: #1B9AF7;
+	color: #FFFFFF;
+	width: 300px;
+	height: 24px;
+	text-align: left;
+}
+#pointInfos {
+	width: auto
+}
+
